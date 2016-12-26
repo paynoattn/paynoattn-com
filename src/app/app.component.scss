@@ -1,0 +1,533 @@
+@import "../assets/styles/variables";
+
+body {
+  background: $light;
+  
+  app, navigation, home, help, designer, developer, writer {
+    display: block;
+    box-sizing: border-box;
+  }
+  
+  main {
+    min-height: 100vh;
+    padding-top: 4.5em;
+    box-sizing: border-box;
+    
+    header, nav, article, footer, main, div, blockquote {
+      box-sizing: border-box;
+    }
+  }
+  
+  navigation {
+    header {
+      padding: 1em;
+      display: flex;
+      align-items: center;
+      background: white;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      height: 4.5em;
+      
+      a, a:visited, a:hover {
+        color: $app-primary;
+      }
+      
+      nav.social-media {
+        display: none;
+        
+        ul {
+          padding: 0;
+          margin: 0;
+          
+          li {
+            padding: 0;
+            margin: 0 1rem 0 0;
+            display: inline-block;
+            list-style: none;
+            
+            a {
+              img {
+                height: 1.5rem;
+                width: 1.5rem;
+                opacity: 0.8;
+                transition: all 250ms ease-in-out;
+              }
+              
+              &:hover {
+                img {
+                  opacity: 1;
+                }
+              }
+            }
+          }
+        }
+        
+        &.open {
+          display: block;
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          padding: 1rem;
+          background: $dark;
+          width: 100%;
+          
+          ul {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            li a img {
+              height: 3rem;
+              width: 3rem;
+            }
+          }
+        }
+      }
+      
+      .masthead {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        
+        a.logo-link {
+          display: inline-block;
+          height: 2.5em;
+          margin-right: 1rem;
+          
+          .logo {
+            height: 100%;
+            width: auto;
+            display: block;
+            margin: auto;
+            border-radius: 50%;
+          }
+        }
+        
+        .hamburger {
+          margin: 0 0 auto auto;
+          height: 2.5em;
+          
+          svg {
+            height: 1.5em;
+          }
+          
+          .hamburger-icon {
+            width: 2em;
+            height: 2em;
+            display: block;
+            background: url('/assets/hamburger.svg') no-repeat center center / 75%;
+          }
+          
+          .hamburger-text {
+            height: 0.5em;
+            font-size: 0.8em;
+          }
+          
+          &.active { 
+            
+            .hamburger-icon {
+              background-image: url('/assets/close.svg');
+            }
+            
+            + .branding {
+              left: 0;
+              opacity: 1;
+            }
+          }
+          
+          @media only screen and (min-width: $screen-tablet) {
+            display: none;
+          }
+        }
+        
+        #hamburger-yes {
+          position: absolute;
+          top: -999px;
+        }
+        
+        
+        .branding {
+          position: fixed;
+          width: 100%;
+          left: 100%;
+          opacity: 0;
+          top: 4em;
+          background: white;
+          transition: 250ms;
+          height: calc(100% - 9em);
+          
+          @media only screen and (min-width: $screen-tablet) {
+            opacity: 1;
+            width: auto;
+            position: relative;
+            top: 0;
+            left: 0;
+            height: auto;
+          }
+          
+          h1 {
+            margin: auto auto 0 auto;
+          }
+          
+          nav {
+            margin: 0 auto auto auto;
+          }
+          
+          h1, nav {
+            font-size: 2em;
+            display: block;
+            text-align: center;
+            width: 80%;
+            line-height: 2em;
+            
+            @media only screen and (min-width: $screen-tablet) {
+              display: inline-block;
+              text-align: left;
+              margin: 0 1em 0 0;
+              font-size: 1.2em;
+              width: auto;
+            }
+          }
+        }
+      }
+      .app-help {
+        
+        a {
+          font-size: 0;
+          
+          &::after {
+            content: ' ';
+            background: url('/assets/help.svg');
+            width: 1em;
+            height: 1em;
+            color: $dark;
+          }
+        }
+      }
+    }
+  }
+  
+  .landing {
+    
+    .load-all-posts {
+      position: fixed;
+      bottom: 0;
+      z-index: -1;
+      opacity: 0;
+      width: 100%;
+      transition: opacity 300ms ease-in-out;
+      
+      a {
+        width: 50px;
+        height: 50px;
+        margin: auto;
+        display: block;
+        padding: 2rem;
+        position: relative;
+        
+        img {
+          display: block;
+          width: 100%;
+        }
+        
+        &:hover img {
+          bottom: 5px;
+        }
+      }
+    }
+    
+    &.active {
+      .load-all-posts {
+        z-index: 1001;
+        opacity: 1;
+      }
+     
+      header {
+        top: 0px;
+      }
+    }
+    
+    navigation {
+      header {
+        top: -100vh;
+        transition: 350ms all cubic-bezier(0, 1, 0.5, 1);
+        background-image: url('/assets/headbg.jpg');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        height: 100vh;
+        z-index: 1000;
+        
+        a, a:visited {
+          color: $light;
+        }
+        
+        nav.social-media {
+          position: absolute;
+          top: 1rem;
+          left: 1rem;
+          display: block;
+          background: transparent;
+          
+          ul {
+            display: block;
+          }
+        }
+        
+        .masthead {
+          width: 80%;
+          max-width: 500px;
+          height: 100vh;
+          margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          color: $light;
+          
+          @media screen and (min-width: $screen-tablet) {
+            flex-direction: row;
+          }
+          
+          a.logo-link {
+            height: auto;
+            
+            .logo {
+              display: block;
+              max-width: 180px;
+              height: auto;
+              margin: 0 auto;
+              border-radius: 0;
+              
+              @media screen and (min-width: $screen-tablet){
+                float: left;
+                width: 180px;
+                margin-right: 1em;
+              }
+            }
+          }
+          
+          .hamburger { display: none };
+          
+          .branding {
+            display: flex;
+            flex-direction: column;
+            opacity: 1;
+            width: auto;
+            position: relative;
+            top: 0;
+            left: 0;
+            background: transparent;
+            height: auto;
+            
+            a, a:visited, a:hover {
+              color: white;
+            }
+            
+            h1, nav {
+              font-size: 6vw;
+              margin: 1em 0;
+              line-height: inherit;
+              
+              @media screen and (min-width: $screen-tablet){
+                font-size: 2.5vw;
+                text-align: left;
+              }
+              
+              @media screen and (min-width: $screen-lg) {
+                font-size: 2.3vw;
+              }
+              
+              @media screen and (min-width: $screen-xlg) {
+                font-size: 2vw;
+              }
+              
+              @media screen and (min-width: $screen-xlg) {
+                font-size: 20px;
+              }
+            }
+          }
+        }
+        
+        .app-help {
+          position: absolute;
+          top: 1rem;
+          right: 1rem;
+          
+          a {
+            font-size: 1em;
+          }
+        }
+      }
+    }
+  }
+  
+  article {
+    min-height: calc(100vh - 8em);
+    
+    h1, h2, h3, a, a:hover, a:visited {
+      color: $app-primary;
+    }
+    
+    blockquote {
+      position: relative;
+      width: 100%;
+      padding: 1em;
+      margin: 0 auto;
+      background: $dark;
+      color: white;
+    }
+    
+    h1, h2, h3, p, img.wide, ul, ol {
+      width: 90%;
+      margin: 0.5em auto;
+      
+      @media only screen and (min-width: $screen-phone){
+        width: 80%;
+      }
+
+      @media only screen and (min-width: $screen-tablet){
+        width: 70%;
+      }
+      
+      @media only screen and (min-width: $screen-xlg){
+        width: 60%;
+      }
+      @media only screen and (min-width: $screen-hd){
+        width: 50%;
+      }
+    }
+    
+    p {
+      font-size: 5.5vw;
+      
+      @media only screen and (min-width: $screen-phone){
+        font-size: 4.5vw;
+      }
+
+      @media only screen and (min-width: $screen-tablet){
+        font-size: 3.5vw;
+      }
+      
+      @media only screen and (min-width: $screen-xlg){
+        font-size: 2vw;
+      }
+      @media only screen and (min-width: xxlg){
+        font-size: 1.5vw;
+      }
+    }
+    
+    h1, h2, h3 {
+      font-size: 6.5vw;
+      
+      @media only screen and (min-width: $screen-phone){
+        font-size: 5.5vw;
+      }
+
+      @media only screen and (min-width: $screen-tablet){
+        font-size: 4.5vw;
+      }
+      
+      @media only screen and (min-width: $screen-xlg){
+        font-size: 3.5vw;
+      }
+      
+      @media only screen and (min-width: $screen-xxlg){
+        font-size: 2.5vw;
+      }
+    }
+    
+    .hero {
+      min-height: 25vh;
+      position: relative;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      
+      h2, h3 {
+        margin: 0;
+        width: 100%;
+        font-size: 13vw;
+        text-align: center;
+        color: $light;
+        
+        @media only screen and (min-width: $screen-tablet) {
+          font-size: 11vw;
+        }
+        
+        @media only screen and (min-width: $screen-hd) {
+          font-size: 220px;
+        }
+      }
+      
+      p.post-meta {
+        @extend %post-meta;          
+      }
+    }
+    
+    .busy {
+      width: 100%;
+      margin: 0 auto;
+      font-size: 4rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 300ms;
+      position: absolute;
+      opacity: 0;
+      z-index: -1;
+      
+      img {
+        margin-right: 1rem;  
+      }
+      
+      &.show {
+        opacity: 1;
+        z-index: 3;
+      } 
+    }
+    
+    nav.sub-menu {
+      padding: 2rem;      
+      font-size: 1.5rem;
+      
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        li {
+          list-style: none;
+          padding: 0;
+          margin: 0 1rem;
+          display: inline-block;
+          
+          a {
+            color: $app-primary;
+          }
+        }
+      }
+    }
+    
+    
+    .posts {
+      @include container(100%);
+      max-width: $screen-hd;
+      background: white;
+    }
+  }
+  
+  footer {
+    padding: 1em;
+  }
+}

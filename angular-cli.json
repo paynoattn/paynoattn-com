@@ -14,7 +14,7 @@
       "index": "index.html",
       "main": "main.ts",
       "test": "test.ts",
-      "tsconfig": "tsconfig.json",
+      "tsconfig": "../tsconfig.json",
       "prefix": "app",
       "mobile": false,
       "styles": [
@@ -41,7 +41,7 @@
     }
   },
   "defaults": {
-    "styleExt": "sass",
+    "styleExt": "scss",
     "prefixInterfaces": false,
     "inline": {
       "style": false,
