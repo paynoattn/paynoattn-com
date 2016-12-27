@@ -15,6 +15,11 @@
   <link rel="stylesheet" href="/index.css" />
 </head>
 <body>
-  <app-root>Loading...</app-root>
+  <app-root>
+    <div class="busy" href="javascript:void(0)" [ngClass]="{show: busy}">
+      <img src="/assets/ellipsis.svg" alt="Loader" />
+      Loading application...
+    </div>
+  </app-root>
 </body>
 </html>

@@ -12,7 +12,7 @@ import {
 // import our component for testing.
 import { AppComponent } from './app.component';
 
-let comp: AppComponent;
+let component: AppComponent;
 let fixture: ComponentFixture<AppComponent>;
 
 describe('AppComponent', () => {
@@ -20,22 +20,27 @@ describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [AppComponent],
-      // NO_ERRORS_SCHEMA allows us to not have to declare children components
       schemas: [NO_ERRORS_SCHEMA]
     })
-    .compileComponents()
-      .then(() => {
-        fixture = TestBed.createComponent(AppComponent);
-        comp = fixture.componentInstance;
-      });
+    .compileComponents();
   }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
   it('should have default props', fakeAsync(() => {
-    expect(comp.busy).toEqual('Loading application...');
-    expect(comp.showWelcome).toEqual(true);
+    expect(component.busy).toEqual('Loading application...');
+    expect(component.showWelcome).toEqual(true);
   }));
   it('should log on init', fakeAsync(() => {
     spyOn(console, 'log');
-    comp.ngOnInit();
+    component.ngOnInit();
     expect(console.log).toHaveBeenCalled();
   }));
 });

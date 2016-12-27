@@ -1,22 +1,8 @@
 <main>
-  <div class="landing" [ngClass]="{active: show}">
-    <!--<navigation (leaving)="showHide($event)"></navigation>-->
-    <div class="load-all-posts">
-      <a href="javascript:void(0)" (click)="showHide(false)">
-        <!--<img src="/assets/more.svg" alt="show all posts" />-->
-      </a>
-    </div>
+  <div class="busy" href="javascript:void(0)" [ngClass]="{show: busy}">
+    <img src="/assets/ellipsis.svg" alt="Loader" />
+    {{busy}}
   </div>
-  
-  <div class="wrapper" [ngClass]="{active: !show}">
-    <!--<navigation (leaving)="showHide($event)"></navigation>-->
-    <article>
-      <div class="busy" href="javascript:void(0)"   [ngClass]="{show: busy}">
-        <img src="/assets/ellipsis.svg" alt="Loader" />
-        {{busy}}
-      </div>
-      <!--<router-outlet></router-outlet>-->
-    </article>
-  </div>
+  <app-navigation [isWelcome]="showWelcome"></app-navigation>
   <footer id="app-footer">&copy; 2016 Chris Pawlukiewicz</footer>
 </main>

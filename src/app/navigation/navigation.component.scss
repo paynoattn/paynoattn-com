@@ -1,0 +1,328 @@
+@import "../../assets/styles/variables";
+
+header {
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  background: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  height: 4.5em;
+    
+  a, a:visited, a:hover {
+    color: $app-primary;
+  }
+    
+  nav.social-media {
+    display: none;
+    
+    ul {
+      padding: 0;
+      margin: 0;
+      
+      li {
+        padding: 0;
+        margin: 0 1rem 0 0;
+        display: inline-block;
+        list-style: none;
+        
+        a {
+          img {
+            height: 1.5rem;
+            width: 1.5rem;
+            opacity: 0.8;
+            transition: all 250ms ease-in-out;
+          }
+          
+          &:hover {
+            img {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+      
+    &.open {
+      display: block;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      padding: 1rem;
+      background: $dark;
+      width: 100%;
+      
+      ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        li a img {
+          height: 3rem;
+          width: 3rem;
+        }
+      }
+    }
+  }
+    
+  .masthead {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    
+    a.logo-link {
+      display: inline-block;
+      height: 2.5em;
+      margin-right: 1rem;
+      
+      .logo {
+        height: 100%;
+        width: auto;
+        display: block;
+        margin: auto;
+        border-radius: 50%;
+      }
+    }
+      
+    .hamburger {
+      margin: 0 0 auto auto;
+      height: 2.5em;
+      
+      svg {
+        height: 1.5em;
+      }
+      
+      .hamburger-icon {
+        width: 2em;
+        height: 2em;
+        display: block;
+        background: url('/assets/hamburger.svg') no-repeat center center / 75%;
+      }
+      
+      .hamburger-text {
+        height: 0.5em;
+        font-size: 0.8em;
+      }
+      
+      &.active { 
+        
+        .hamburger-icon {
+          background-image: url('/assets/close.svg');
+        }
+        
+        + .branding {
+          left: 0;
+          opacity: 1;
+        }
+      }
+      
+      @include breakpoint($screen-tablet) {
+        display: none;
+      }
+    }
+      
+    #hamburger-yes {
+      position: absolute;
+      top: -999px;
+    }
+      
+    .branding {
+      position: fixed;
+      width: 100%;
+      left: 100%;
+      opacity: 0;
+      top: 4em;
+      background: white;
+      transition: 250ms;
+      height: calc(100% - 9em);
+      
+      @include breakpoint($screen-tablet) {
+        opacity: 1;
+        width: auto;
+        position: relative;
+        top: 0;
+        left: 0;
+        height: auto;
+      }
+      
+      h1 {
+        margin: auto auto 0 auto;
+      }
+      
+      nav {
+        margin: 0 auto auto auto;
+      }
+      
+      h1, nav {
+        font-size: 2em;
+        display: block;
+        text-align: center;
+        width: 80%;
+        line-height: 2em;
+        
+        @include breakpoint($screen-tablet) {
+          display: inline-block;
+          text-align: left;
+          margin: 0 1em 0 0;
+          font-size: 1.2em;
+          width: auto;
+        }
+      }
+    }
+  }
+  
+  .app-help  a {
+    font-size: 0;
+    
+    &::after {
+      content: ' ';
+      background: url('/assets/help.svg');
+      width: 1em;
+      height: 1em;
+      color: $dark;
+    }
+  }
+
+  .load-all-posts {
+    position: fixed;
+    bottom: 0;
+    z-index: -1;
+    opacity: 0;
+    width: 100%;
+    transition: opacity 300ms ease-in-out;
+      
+    a {
+      width: 50px;
+      height: 50px;
+      margin: auto;
+      display: block;
+      padding: 2rem;
+      position: relative;
+      
+      img {
+        display: block;
+        width: 100%;
+      }
+      
+      &:hover img {
+        bottom: 5px;
+      }
+    }
+  }
+
+  &.landing {
+    top: 0;
+    transition: 350ms all cubic-bezier(0, 1, 0.5, 1);
+    background-image: url('/assets/headbg.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 100vh;
+    z-index: 1000;
+    
+    a, a:visited {
+      color: $light;
+    }
+    
+    nav.social-media {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      display: block;
+      background: transparent;
+      
+      ul {
+        display: block;
+      }
+    }
+    
+    .masthead {
+      width: 80%;
+      max-width: 500px;
+      height: 100vh;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: $light;
+      
+      @include breakpoint($screen-tablet) {
+        flex-direction: row;
+      }
+      
+      a.logo-link {
+        height: auto;
+        
+        .logo {
+          display: block;
+          max-width: 180px;
+          height: auto;
+          margin: 0 auto;
+          border-radius: 0;
+          
+          @include breakpoint($screen-tablet){
+            float: left;
+            width: 180px;
+            margin-right: 1em;
+          }
+        }
+      }
+      
+      .hamburger { display: none };
+      
+      .branding {
+        display: flex;
+        flex-direction: column;
+        opacity: 1;
+        width: auto;
+        position: relative;
+        top: 0;
+        left: 0;
+        background: transparent;
+        height: auto;
+        
+        a, a:visited, a:hover {
+          color: white;
+        }
+        
+        h1, nav {
+          font-size: 6vw;
+          margin: 1em 0;
+          line-height: inherit;
+          
+          @include breakpoint($screen-tablet){
+            font-size: 2.5vw;
+            text-align: left;
+          }
+          
+          @include breakpoint($screen-lg) {
+            font-size: 2.3vw;
+          }
+          
+          @include breakpoint($screen-xlg) {
+            font-size: 2vw;
+          }
+          
+          @include breakpoint($screen-xlg) {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+    
+    .app-help {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      
+      a {
+        font-size: 1em;
+      }
+    }
+  }
+}

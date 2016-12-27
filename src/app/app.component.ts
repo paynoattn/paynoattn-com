@@ -23,5 +23,6 @@ export class AppComponent implements OnInit {
        The source code for this website can be located at: 
        ${repoUrl}`
     );
+    this.busy = undefined;
   }
 }
