@@ -1,0 +1,76 @@
+@import "variables";
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  color: $dark;
+  min-height: 100vh;
+  min-width: 500px;
+  background: $light;
+
+  a, a:visted {
+    color: $app-primary;
+    text-decoration: underline;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+#no-script {
+  width: 90%;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  @include breakpoint($screen-phablet) {
+    width: 80%;
+  }
+
+  @include breakpoint($screen-tablet) {
+    width: 70%;
+  }
+
+  @include breakpoint($screen-lg) {
+    width: 60%;
+  }
+  
+  @include breakpoint($screen-xlg) {
+    width: 50%;
+  }
+}
+
+app-root {
+  display: block;
+
+  .busy {
+    width: 100%;
+    margin: 0 auto;
+    font-size: 4rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 300ms;
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+    
+    img {
+      margin-right: 1rem;  
+    }
+    
+    &.show {
+      opacity: 1;
+      z-index: 3;
+    } 
+  }
+}
+
+app-root, app-navigation {
+  display: block;
+  box-sizing: border-box;
+}

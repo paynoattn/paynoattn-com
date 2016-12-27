@@ -1,0 +1,34 @@
+<header [ngClass]="{'landing': isWelcome}">
+  <nav class="social-media" [ngClass]="{open: hamburger}">
+    <ul>
+      <li *ngFor='let account of socialMediaAccounts'>
+        <a href="{{account.link}}">
+          <img src="/assets/{{account.provider}}.svg" alt="{{account.accountTitle}}" />
+        </a>
+      </li>
+    </ul>
+  </nav><!-- .social-media-->
+  <div class="masthead">
+    <a class="logo-link" href="/">
+      <img src="/assets/logo.jpg" class="logo" alt="logo"/>
+    </a>
+    <!--<p class="hamburger" (click)='showHamburger()' [ngClass]="{active: hamburger}">
+      <span class="hamburger-icon"></span>
+      <span class="hamburger-text">Menu</span>
+    </p>-->
+    <div class="branding" >
+      <h1>Hi, my name is Chris</h1>
+      <nav class="main-nav">I'm a 
+        <a>designer</a>,
+        <a>developer</a>,
+        <a>writer</a>,
+        and <a href="http://kingdomworks.io" target="_blank">entreprenuer</a>.
+      </nav><!-- .main-nav -->
+    </div><!-- .branding -->
+  </div><!-- .masthead -->
+  <div class="app-help">
+    <!--<a [routerLink]="['/help']">
+      How do I use this website?
+    </a>-->
+  </div><!-- .app-help -->
+</header>
