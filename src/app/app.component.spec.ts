@@ -28,7 +28,6 @@ describe('AppComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(AppComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
@@ -42,5 +41,6 @@ describe('AppComponent', () => {
     spyOn(console, 'log');
     component.ngOnInit();
     expect(console.log).toHaveBeenCalled();
+    expect(component.busy).toEqual(undefined);
   }));
 });
