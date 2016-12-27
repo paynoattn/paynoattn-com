@@ -9,6 +9,6 @@ describe('paynoattn-com App', function() {
 
   it('should display message saying app works', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getParagraphText()).toEqual('Hi, my name is Chris');
   });
 });
