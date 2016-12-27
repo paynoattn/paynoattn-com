@@ -1,3 +1,8 @@
-<h1>
-  {{title}}
-</h1>
+<main>
+  <div class="busy" href="javascript:void(0)" [ngClass]="{show: busy}">
+    <img src="/assets/ellipsis.svg" alt="Loader" />
+    {{busy}}
+  </div>
+  <app-navigation [isWelcome]="showWelcome"></app-navigation>
+  <footer id="app-footer">&copy; 2016 Chris Pawlukiewicz</footer>
+</main>

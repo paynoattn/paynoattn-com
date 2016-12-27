@@ -1,0 +1,157 @@
+@import "../assets/styles/variables";
+
+body {
+  background: $light;
+  
+  main {
+    min-height: 100vh;
+    padding-top: 4.5em;
+    box-sizing: border-box;
+    
+    header, nav, article, footer, main, div, blockquote {
+      box-sizing: border-box;
+    }
+  }
+  
+  article {
+    min-height: calc(100vh - 8em);
+    
+    h1, h2, h3, a, a:hover, a:visited {
+      color: $app-primary;
+    }
+    
+    blockquote {
+      position: relative;
+      width: 100%;
+      padding: 1em;
+      margin: 0 auto;
+      background: $dark;
+      color: white;
+    }
+    
+    h1, h2, h3, p, img.wide, ul, ol {
+      width: 90%;
+      margin: 0.5em auto;
+      
+      @media only screen and (min-width: $screen-phone){
+        width: 80%;
+      }
+
+      @media only screen and (min-width: $screen-tablet){
+        width: 70%;
+      }
+      
+      @media only screen and (min-width: $screen-xlg){
+        width: 60%;
+      }
+      @media only screen and (min-width: $screen-hd){
+        width: 50%;
+      }
+    }
+    
+    p {
+      font-size: 5.5vw;
+      
+      @media only screen and (min-width: $screen-phone){
+        font-size: 4.5vw;
+      }
+
+      @media only screen and (min-width: $screen-tablet){
+        font-size: 3.5vw;
+      }
+      
+      @media only screen and (min-width: $screen-xlg){
+        font-size: 2vw;
+      }
+      @media only screen and (min-width: $screen-xxlg){
+        font-size: 1.5vw;
+      }
+    }
+    
+    h1, h2, h3 {
+      font-size: 6.5vw;
+      
+      @media only screen and (min-width: $screen-phone){
+        font-size: 5.5vw;
+      }
+
+      @media only screen and (min-width: $screen-tablet){
+        font-size: 4.5vw;
+      }
+      
+      @media only screen and (min-width: $screen-xlg){
+        font-size: 3.5vw;
+      }
+      
+      @media only screen and (min-width: $screen-xxlg){
+        font-size: 2.5vw;
+      }
+    }
+    
+    .hero {
+      min-height: 25vh;
+      position: relative;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      
+      h2, h3 {
+        margin: 0;
+        width: 100%;
+        font-size: 13vw;
+        text-align: center;
+        color: $light;
+        
+        @media only screen and (min-width: $screen-tablet) {
+          font-size: 11vw;
+        }
+        
+        @media only screen and (min-width: $screen-hd) {
+          font-size: 220px;
+        }
+      }
+      
+      p.post-meta {
+        @extend %post-meta;          
+      }
+    }
+    
+    nav.sub-menu {
+      padding: 2rem;      
+      font-size: 1.5rem;
+      
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        li {
+          list-style: none;
+          padding: 0;
+          margin: 0 1rem;
+          display: inline-block;
+          
+          a {
+            color: $app-primary;
+          }
+        }
+      }
+    }
+    
+    
+    .posts {
+      @include container(100%);
+      max-width: $screen-hd;
+      background: white;
+    }
+  }
+  
+  footer {
+    padding: 1em;
+  }
+}
