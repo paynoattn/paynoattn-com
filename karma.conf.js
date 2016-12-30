@@ -44,6 +44,6 @@ module.exports = function (config) {
       }
     },
     browsers: ['Chrome_travis_ci'],
-    singleRun: false
+    singleRun: true
   });
 };
