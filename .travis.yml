@@ -1,7 +1,19 @@
 language: node_js
 node_js:
-  - "5.11"
+- '5.11'
 before_install:
-  - export CHROME_BIN=chromium-browser
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
+- export CHROME_BIN=chromium-browser
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+before_deploy:
+- ng build
+deploy:
+  provider: s3
+  access_key_id: AKIAIAITUI4YMLG5EE3A
+  secret_access_key:
+    secure: B0t401ZGPsszV8Hrzk0vqz3adeQZE7B6EjxmvFTXDQNSEt4+6kXk5+GcGPJZUGANzXImnZT0Kkvj8HSTv/n+Cg0Ogc1Kas6kyZH6zJlyBqKR7VjgbBZkgMo1qldUxm8/ngDSZ62qTjIwYoQY44amOtQJhvy7ec4oDUinzEw+nXroQBr9zuEXeR77trurW49Ox69FavubtBDqI29OWq6joRdXu0c36qMH9eNm80iHqQNyV4aKoXzpns7zZiyVRjgqbND+EsoJFNIgZ1vaxafLP800GkPcxOViboyqfphCZJ7kFPZGYHBli8U1oZUSSKTw+x8Ck5YiN9tyjwHSue1C6nTDNwYr+hHeKtNYeKcRgcGBpfdt50sQgxWalDNbHDtxFha+jgPopvpvba2zGalBe7mci9Hr9mGYTE2+7J/H9QflM9myz19cRM1pD1UqrBvoblIt715tcPMqdN5eOVAm56Y0lEQ62tzF8g9kT9K/oqlaqnpcwMbXym4I5nI1qJ2DVw09pooyqXXCCyqlroy0z6c3mU8IfNw+qO2drqshtTDbWso9hJ4U7QIDqC73vhxSM6S3+SBXos70YEq8IQM/NgSG9eGDl11+uCi7+LjDeeQDw2cDhLCRqNkDpz0QohLvHP5P56NyIut0AU0XEE74TODwe5VAwl3wH1iPOkR/wz0=
+  bucket: aws-website-paynoattn-d2ak6
+  local-dir: dist
+  skip_cleanup: true
+  on:
+    branch: master
