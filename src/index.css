@@ -1,0 +1,56 @@
+body {
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  color: #333;
+  min-height: 100vh;
+  min-width: 500px;
+  background: #f2f2f2; }
+  body a, body a:visted {
+    color: #139CE8;
+    text-decoration: underline; }
+  body a:hover {
+    text-decoration: none; }
+
+#no-script {
+  width: 90%;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center; }
+  @media (min-width: 640px) {
+    #no-script {
+      width: 80%; } }
+  @media (min-width: 720px) {
+    #no-script {
+      width: 70%; } }
+  @media (min-width: 960px) {
+    #no-script {
+      width: 60%; } }
+  @media (min-width: 1080px) {
+    #no-script {
+      width: 50%; } }
+
+app-root {
+  display: block; }
+  app-root .busy {
+    width: 100%;
+    margin: 0 auto;
+    font-size: 4rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 300ms;
+    position: absolute;
+    opacity: 0;
+    z-index: -1; }
+    app-root .busy img {
+      margin-right: 1rem; }
+    app-root .busy.show {
+      opacity: 1;
+      z-index: 3; }
+
+app-root, app-navigation {
+  display: block;
+  box-sizing: border-box; }
