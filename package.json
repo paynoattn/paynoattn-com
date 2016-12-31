@@ -10,13 +10,12 @@
     "lint": "tslint \"src/**/*.ts\"",
     "test": "karma start",
     "test:dev": "ng test",
-    "prebuild": "npm run styles:prod",
+    "prebuild": "npm run styles",
     "build": "ng build",
     "pree2e": "webdriver-manager update --standalone false --gecko false",
     "e2e": "protractor",
-    "styles": "node-sass -o ./src src/assets/styles/index.scss",
-    "styles:dev": "npm run styles -w",
-    "styles:prod": "node-sass -o ./dist src/assets/styles/index.scss --output-style compressed"
+    "styles": "node-sass -o src/assets/styles/ src/assets/styles/index.scss",
+    "styles:dev": "npm run styles -w"
   },
   "private": true,
   "dependencies": {
