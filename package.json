@@ -7,7 +7,7 @@
     "prestart": "npm run styles",
     "start": "ng serve",
     "lint": "tslint \"src/**/*.ts\"",
-    "test": "karma start --single-run",
+    "test": "./node_modules/.bin/karma start --browsers Firefox --single-run",
     "test:dev": "ng test",
     "prebuild": "npm run styles",
     "prebuild:prod": "npm run styles",

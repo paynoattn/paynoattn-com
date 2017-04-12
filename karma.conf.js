@@ -38,13 +38,7 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    customLaunchers: {
-      Chrome_travis_ci: {
-        base: 'Chrome',
-        flags: ['--no-sandbox']
-      }
-    },
-    browsers: ['Chrome_travis_ci'],
+    browsers: ['Chrome'],
     singleRun: false
   });
 };
