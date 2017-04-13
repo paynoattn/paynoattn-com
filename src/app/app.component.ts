@@ -4,7 +4,7 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 
-import { repoUrl } from './utils';
+import { repoUrl } from './utilities';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     console.log(
       `Welcome to paynoattn.com.
-       The source code for this website can be located at: 
+       The source code for this website can be located at:
        ${repoUrl}`
     );
     this.busy = undefined;

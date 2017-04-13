@@ -6,10 +6,8 @@ import { Observable } from 'rxjs/Rx';
 
 import { NavigationComponent } from './navigation.component';
 import { NavigationService } from './navigation.service';
-import {
-  mockSocialMediaAccounts,
-  NavigationServiceStub
-} from '../utils';
+import { NavigationServiceStub } from './navigation.service.stub';
+import { mockSocialMediaAccounts } from './socialmedia-account.mock';
 
 describe('NavigationComponent', () => {
   let component: NavigationComponent;

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { SocialMediaAccount } from '../utils';
+import { SocialMediaAccount } from './socialmedia-account';
 import { Observable } from 'rxjs/Rx';
 
 @Injectable()

@@ -4,19 +4,36 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { NavigationComponent } from './navigation';
+import {
+  NavigationComponent,
+  NavigationService
+} from './navigation';
+import { ContactComponent } from './contact';
+import {
+  DataService,
+  EnvironmentService
+} from './utilities';
+
+export const APP_DECLARATIONS = [
+  AppComponent,
+  NavigationComponent,
+  ContactComponent
+];
+
+export const APP_PROVIDERS = [
+  DataService,
+  EnvironmentService,
+  NavigationService
+];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavigationComponent
-  ],
+  declarations: [ APP_DECLARATIONS ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [ APP_PROVIDERS ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

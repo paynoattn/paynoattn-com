@@ -6,7 +6,7 @@ import {
   EventEmitter
 } from '@angular/core';
 
-import { SocialMediaAccount } from '../utils';
+import { SocialMediaAccount } from './socialmedia-account';
 import { NavigationService } from './navigation.service';
 
 @Component({
