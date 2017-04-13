@@ -14,8 +14,8 @@ import { repoUrl } from './utilities';
 })
 
 export class AppComponent implements OnInit {
-  busy: string = 'Loading application...';
-  showWelcome: boolean = true;
+  busy = 'Loading application...';
+  showWelcome = true;
 
   ngOnInit() {
     console.log(

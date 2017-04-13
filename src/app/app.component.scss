@@ -153,5 +153,13 @@ body {
   
   footer {
     padding: 1em;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    z-index: 100000;
+    text-align: center;
+    color: white;
   }
 }

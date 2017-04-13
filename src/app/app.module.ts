@@ -8,7 +8,10 @@ import {
   NavigationComponent,
   NavigationService
 } from './navigation';
-import { ContactComponent } from './contact';
+import {
+  ContactComponent,
+  ContactService
+} from './contact';
 import {
   DataService,
   EnvironmentService
@@ -22,6 +25,7 @@ export const APP_DECLARATIONS = [
 
 export const APP_PROVIDERS = [
   DataService,
+  ContactService,
   EnvironmentService,
   NavigationService
 ];

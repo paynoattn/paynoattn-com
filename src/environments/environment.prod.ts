@@ -1,3 +1,7 @@
+import { Env } from './env';
+
 export const environment = {
-  production: true
+  production: true,
+  contactEmail: 'hi@paynoattn.com',
+  contactApiUrl: 'https://formspree.io/'
 };
