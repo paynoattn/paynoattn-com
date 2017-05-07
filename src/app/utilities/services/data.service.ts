@@ -25,7 +25,7 @@ export class DataService {
   }
 
   private transformResponse(response: Response) {
-    console.log(response);
+    console.log(response, response.json());
     return response.json();
   }
 
