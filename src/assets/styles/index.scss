@@ -72,7 +72,6 @@ app-root {
   }
 }
 
-app-root, app-navigation {
-  display: block;
-  box-sizing: border-box;
+app-root {
+  @include angular-component();
 }

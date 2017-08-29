@@ -1,4 +1,4 @@
-<div class="wrapper">
+<main>
   <div class="busy" href="javascript:void(0)" [ngClass]="{show: busy}">
     <img src="/assets/ellipsis.svg" alt="Loader" />
     {{busy}}
@@ -7,6 +7,8 @@
                   (leaving)="isHome = !isHome">
   </app-navigation>
   <app-navigation [isWelcome]=false></app-navigation>
-  <router-outlet></router-outlet>
+  <article>
+    <router-outlet></router-outlet>
+  </article>
   <footer id="app-footer">&copy; 2016 Chris Pawlukiewicz</footer>
-</div>
+</main>
