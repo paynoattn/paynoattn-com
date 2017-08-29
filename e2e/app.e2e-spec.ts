@@ -1,14 +1,14 @@
-import { PaynoattnComPage } from './app.po';
+import { DudePage } from './app.po';
 
-describe('paynoattn-com App', function() {
-  let page: PaynoattnComPage;
+describe('dude App', () => {
+  let page: DudePage;
 
   beforeEach(() => {
-    page = new PaynoattnComPage();
+    page = new DudePage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Hi, my name is Chris');
+    expect(page.getParagraphText()).toEqual('Welcome to app!!');
   });
 });
