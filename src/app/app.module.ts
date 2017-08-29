@@ -8,12 +8,14 @@ import { APP_ROUTES } from './app.routes';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home';
 import { NavigationComponent } from './navigation';
+import { FourOFourComponent } from './four-o-four/';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NavigationComponent
+    NavigationComponent,
+    FourOFourComponent
   ],
   imports: [
     BrowserModule,

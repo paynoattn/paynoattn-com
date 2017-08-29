@@ -3,6 +3,7 @@
 header {
   padding: 1em;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   background: white;
   position: fixed;
@@ -189,11 +190,10 @@ header {
 
   .load-all-posts {
     position: absolute;
-    bottom: 1rem;
+    bottom: 0.5rem;
     left: 0;
     width: 100%;
-    transition: opacity 300ms ease-in-out;
-      
+
     a {
       width: 50px;
       height: 50px;
@@ -202,14 +202,17 @@ header {
       padding: 2rem;
       position: relative;
       text-align: center;
-      
+      text-decoration: none;
+      bottom: 0;
+      transition: all 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  
       img {
         display: block;
         width: 100%;
       }
       
-      &:hover img {
-        bottom: 5px;
+      &:hover {
+        bottom: 0.5rem;
       }
     }
   }

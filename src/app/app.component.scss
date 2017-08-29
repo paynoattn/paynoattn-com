@@ -5,7 +5,7 @@ body {
   
   .wrapper {
     min-height: 100vh;
-    // padding-top: 4.5rem;
+    padding-top: 4.5rem;
     box-sizing: border-box;
     
     header, nav, article, footer, main, div, blockquote {
@@ -148,6 +148,17 @@ body {
       @include container(100%);
       max-width: $screen-hd;
       background: white;
+    }
+  }
+
+  app-navigation.landing {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    transition: 300ms top ease-in-out;
+
+    &.hide {
+      top: -100vh;
     }
   }
 

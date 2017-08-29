@@ -23,7 +23,7 @@
     </div><!-- .branding -->
   </div><!-- .masthead -->
   <div class="load-all-posts" *ngIf="isWelcome">
-    <a routerLink="posts">
+    <a (click)="leaving.emit()">
       All posts
       <img src="/assets/down-arrow.svg" alt="arrow-down">
     </a>
