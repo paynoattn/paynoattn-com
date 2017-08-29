@@ -45,6 +45,8 @@ body {
 
 app-root {
   display: block;
+  width: 100%;
+  min-height: 100vh;
 
   .busy {
     width: 100%;

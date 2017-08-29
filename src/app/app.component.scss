@@ -3,9 +3,9 @@
 body {
   background: $light;
   
-  main {
+  .wrapper {
     min-height: 100vh;
-    padding-top: 4.5em;
+    // padding-top: 4.5rem;
     box-sizing: border-box;
     
     header, nav, article, footer, main, div, blockquote {
@@ -149,6 +149,10 @@ body {
       max-width: $screen-hd;
       background: white;
     }
+  }
+
+  main {
+    padding: 1rem;
   }
   
   footer {
