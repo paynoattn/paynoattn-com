@@ -6,7 +6,7 @@ import {
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs/Rx';
 
-import { repoUrl } from './utils';
+import { EnvironmentService } from './utils';
 
 @Component({
   selector: 'app-root',
@@ -20,8 +20,12 @@ export class AppComponent implements OnInit {
   showWelcome: boolean = true;
   isHomeSubject = new BehaviorSubject<boolean>(false);
   isHome: boolean;
+  repoUrl;
 
-  constructor( private _router: Router ) {
+  constructor(
+    private env: EnvironmentService,
+    private _router: Router
+  ) {
     this.isHomeSubject
     .distinctUntilChanged()
     .subscribe(isHome => this.isHome = isHome);
@@ -31,10 +35,11 @@ export class AppComponent implements OnInit {
     this._router.events.subscribe(
       e => this.isHomeSubject.next(e['url'] === '/' || e['url'] === '/#home')
     );
+    this.repoUrl = this.env.getValue('repoUrl');
     console.log(
       `Welcome to paynoattn.com.
        The source code for this website can be located at: 
-       ${repoUrl}`
+       ${this.repoUrl}`
     );
     this.busy = undefined;
   }

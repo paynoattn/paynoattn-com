@@ -1,7 +1,4 @@
-export {
-  appUrl,
-  repoUrl
-} from './globals';
+export { EnvironmentService } from './environment';
 export {
   RouterStub
 } from './stubs';

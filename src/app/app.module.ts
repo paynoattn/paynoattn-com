@@ -9,13 +9,16 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home';
 import { NavigationComponent } from './navigation';
 import { FourOFourComponent } from './four-o-four/';
+import { PostsComponent } from './posts';
+import { EnvironmentService } from './utils';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavigationComponent,
-    FourOFourComponent
+    FourOFourComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +26,9 @@ import { FourOFourComponent } from './four-o-four/';
     HttpModule,
     RouterModule.forRoot(APP_ROUTES)
   ],
-  providers: [],
+  providers: [
+    EnvironmentService
+  ],
   bootstrap: [AppComponent]
 })
 
