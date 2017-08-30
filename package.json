@@ -9,6 +9,7 @@
     "lint": "tslint \"src/**/*.ts\"",
     "test": "./node_modules/.bin/karma start --browsers Firefox --single-run",
     "test:dev": "ng test",
+    "test:coverage": "ng test --code-coverage",
     "prebuild": "npm run styles",
     "prebuild:prod": "npm run styles",
     "build": "ng build",
