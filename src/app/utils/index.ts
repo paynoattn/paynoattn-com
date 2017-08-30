@@ -1,4 +1,2 @@
 export { EnvironmentService } from './environment';
-export {
-  RouterStub
-} from './stubs';
+export { RouterStub } from './stubs';
