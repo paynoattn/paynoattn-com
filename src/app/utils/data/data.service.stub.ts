@@ -1,5 +1,6 @@
 import { Observable } from 'rxjs/Rx';
 
+/* istanbul ignore next */
 export class DataStub {
   get(url: string) {
     return Observable.of({foo: 'bar'});

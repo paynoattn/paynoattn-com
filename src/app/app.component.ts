@@ -38,7 +38,7 @@ export class AppComponent implements OnInit {
     this.repoUrl = this.env.getValue('repoUrl');
     console.log(
       `Welcome to paynoattn.com.
-       The source code for this website can be located at: 
+       The source code for this website can be located at:
        ${this.repoUrl}`
     );
     this.busy = undefined;

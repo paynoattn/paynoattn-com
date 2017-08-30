@@ -31,7 +31,7 @@ export class NavigationService {
     ];
   }
 
-  getCategories(): Observable<SocialMediaAccount[]> {
+  getAccounts(): Observable<SocialMediaAccount[]> {
     return Observable.of(this.socialMediaAccounts);
   }
 }
