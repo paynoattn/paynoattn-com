@@ -161,3 +161,9 @@ body {
     height: 3rem;
   }
 }
+
+@each $color-name, $color in $app-colors {
+  .#{$color-name} {
+    background-color: $color;
+  }
+}

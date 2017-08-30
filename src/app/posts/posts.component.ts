@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { Post } from './post';
 import { PostsService } from './posts.service';
@@ -12,13 +13,25 @@ import { PostsService } from './posts.service';
 export class PostsComponent implements OnInit {
   posts: Post[];
 
-  constructor(private postSvc: PostsService) { }
+  constructor(
+    private postSvc: PostsService,
+    private _activatedRoute: ActivatedRoute
+  ) { }
 
   ngOnInit() {
-    this.postSvc.getAllPosts()
-      .subscribe(res => {
-        console.log(res);
-        this.posts = res;
-      });
+    this._activatedRoute.params
+      .switchMap(route => {
+        if (route['category']) {
+          return this.postSvc.getCategoryPosts(route['category']);
+        } else {
+          return this.postSvc.getAllPosts();
+        }
+      })
+      .subscribe(res => this.posts = res);
+  }
+
+  postColor(post: Post) {
+    return post.categories[0] === 'development' ? 'primary' : post.categories[0] === 'writing' ?
+      'secondary' : post.categories[0] === 'design' ? 'tertiary' : 'dark';
   }
 }

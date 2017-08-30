@@ -12,6 +12,9 @@ export const APP_ROUTES: Route[] = [
     path: 'posts', component: PostsComponent
   },
   {
+    path: 'posts/:category', component: PostsComponent
+  },
+  {
     path: '**', component: FourOFourComponent
   }
 ]
