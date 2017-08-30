@@ -12,7 +12,11 @@ import { Router } from '@angular/router';
 
 // import our component for testing.
 import { AppComponent } from './app.component';
-import { RouterStub } from './utils';
+import {
+  EnvironmentService,
+  EnvironmentStub,
+  RouterStub
+} from './utils';
 
 let component: AppComponent;
 let fixture: ComponentFixture<AppComponent>;
@@ -23,7 +27,8 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ AppComponent ],
       schemas: [ NO_ERRORS_SCHEMA ],
-      providers: [ 
+      providers: [
+        { provide: EnvironmentService, useClass: EnvironmentStub },
         { provide: Router, useClass: RouterStub }
       ]
     }).compileComponents();

@@ -10,7 +10,10 @@ import { HomeComponent } from './home';
 import { NavigationComponent } from './navigation';
 import { FourOFourComponent } from './four-o-four/';
 import { PostsComponent } from './posts';
-import { EnvironmentService } from './utils';
+import {
+  DataService,
+  EnvironmentService
+} from './utils';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,7 @@ import { EnvironmentService } from './utils';
     RouterModule.forRoot(APP_ROUTES)
   ],
   providers: [
+    DataService,
     EnvironmentService
   ],
   bootstrap: [AppComponent]

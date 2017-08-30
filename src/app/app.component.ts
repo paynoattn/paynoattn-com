@@ -16,8 +16,8 @@ import { EnvironmentService } from './utils';
 })
 
 export class AppComponent implements OnInit {
-  busy: string = 'Loading application...';
-  showWelcome: boolean = true;
+  busy = 'Loading application...';
+  showWelcome = true;
   isHomeSubject = new BehaviorSubject<boolean>(false);
   isHome: boolean;
   repoUrl;
