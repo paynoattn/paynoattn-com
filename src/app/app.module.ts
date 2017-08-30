@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home';
 import { NavigationComponent } from './navigation';
 import { FourOFourComponent } from './four-o-four/';
-import { PostsComponent } from './posts';
+import { PostsComponent, PostsService } from './posts';
 import {
   DataService,
   EnvironmentService
@@ -31,7 +31,8 @@ import {
   ],
   providers: [
     DataService,
-    EnvironmentService
+    EnvironmentService,
+    PostsService
   ],
   bootstrap: [AppComponent]
 })

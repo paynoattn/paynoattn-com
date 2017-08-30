@@ -1,11 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { PostsService } from './posts.service';
+import { DataService, DataStub } from '../utils';
 
 describe('PostsService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [PostsService]
+      providers: [
+        PostsService,
+        { provide: DataService, useClass: DataStub }
+      ]
     });
   });
 

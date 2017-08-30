@@ -5,7 +5,15 @@ import { DataService } from '../utils'
 
 @Injectable()
 export class PostsService {
+  private apiRoute = '/posts';
 
-  constructor() { }
+  constructor(private dataSvc: DataService) { }
 
+  getAllPosts() {
+    return this.dataSvc.get(this.apiRoute);
+  }
+
+  getCategoryPosts(category) {
+    return this.dataSvc.get(this.apiRoute + '/' + category);
+  }
 }

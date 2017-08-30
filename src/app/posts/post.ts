@@ -1,8 +1,8 @@
 export interface Post {
-  _id: string;
+  _id?: string;
   title: string;
   categories: string[];
-  imageURL: string;
+  imageURL?: string;
   source: string;
   link: string;
   preview: string;
