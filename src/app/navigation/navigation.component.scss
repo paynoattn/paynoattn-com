@@ -225,7 +225,8 @@ header {
     background-size: cover;
     height: 100vh;
     z-index: 1000;
-    position: relative;
+    position: fixed;
+    overflow: hidden;
     // top: -4.5rem;
     
     a, a:visited {
