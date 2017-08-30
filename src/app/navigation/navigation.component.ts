@@ -5,9 +5,8 @@ import {
   Output,
   EventEmitter
 } from '@angular/core';
-import { Router } from '@angular/router';
 
-import { SocialMediaAccount } from '../utils';
+import { SocialMediaAccount } from './socialmedia-account';
 import { NavigationService } from './navigation.service';
 
 @Component({
@@ -24,8 +23,7 @@ export class NavigationComponent implements OnInit {
   hamburger: boolean = false;
 
   constructor(
-    private navService: NavigationService,
-    private _router: Router
+    private navService: NavigationService
   ) { }
 
   getCategories() {

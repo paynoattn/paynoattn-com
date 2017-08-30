@@ -8,9 +8,11 @@ import {
   fakeAsync,
   ComponentFixture
 } from '@angular/core/testing';
+import { Router } from '@angular/router';
 
 // import our component for testing.
 import { AppComponent } from './app.component';
+import { RouterStub } from './utils';
 
 let component: AppComponent;
 let fixture: ComponentFixture<AppComponent>;
@@ -19,10 +21,12 @@ describe('AppComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AppComponent],
-      schemas: [NO_ERRORS_SCHEMA]
-    })
-    .compileComponents();
+      declarations: [ AppComponent ],
+      schemas: [ NO_ERRORS_SCHEMA ],
+      providers: [ 
+        { provide: Router, useClass: RouterStub }
+      ]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
