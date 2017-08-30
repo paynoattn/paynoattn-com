@@ -32,6 +32,7 @@ body {
     h1, h2, h3, p, img.wide, ul, ol {
       width: 90%;
       margin: 1rem auto;
+      box-sizing: border-box;
       
       @media only screen and (min-width: $screen-phone){
         width: 80%;
@@ -141,13 +142,6 @@ body {
           }
         }
       }
-    }
-    
-    
-    .posts {
-      @include container(100%);
-      max-width: $screen-hd;
-      background: white;
     }
   }
 

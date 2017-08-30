@@ -10,12 +10,15 @@ import { PostsService } from './posts.service';
 })
 
 export class PostsComponent implements OnInit {
+  posts: Post[];
 
   constructor(private postSvc: PostsService) { }
 
   ngOnInit() {
-    this.postSvc.getAllPosts().subscribe(res => {
-      console.log(res);
-    });
+    this.postSvc.getAllPosts()
+      .subscribe(res => {
+        console.log(res);
+        this.posts = res;
+      });
   }
 }

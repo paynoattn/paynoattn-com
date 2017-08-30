@@ -2,3 +2,15 @@
   display: block;
   box-sizing: border-box;
 }
+
+$aspect-ratio: 56.25%;
+@mixin grid($divider) {
+  flex: 0 0 100% / $divider;
+  padding-top: $aspect-ratio / $divider;
+}
+
+@mixin grid-breakpoint($breakpoint, $divider) {
+  @include breakpoint($breakpoint) {
+    @include grid($divider);
+  }
+}

@@ -1,0 +1,49 @@
+@import "../../assets/styles/variables";
+
+.posts {
+  display: flex;
+  flex-wrap: wrap;
+
+  .post {
+    width: 100%;
+    padding: 0 1rem;
+    @include grid(1);
+    //padding-top: 100%;
+    position: relative;
+    background: $dark;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    .post-title {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      max-height: 2rem;
+      overflow: hidden;
+      font-size: 1.3rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
+      padding: 0 1rem;
+    }
+
+    &:hover {
+      .post-title {
+        max-height: 100%;
+        white-space: inherit;
+      }
+    }
+
+    @include grid-breakpoint($screen-tablet, 2);
+
+    @include grid-breakpoint($screen-lg, 3);
+
+    @include grid-breakpoint($screen-xlg, 4);
+
+    @include grid-breakpoint($screen-xxlg, 5);
+
+    @include grid-breakpoint($screen-hd, 6);
+  }
+}
