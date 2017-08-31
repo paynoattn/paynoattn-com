@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { SocialMediaAccount } from '../utils';
+import { SocialMediaAccount } from './socialmedia-account';
 import { Observable } from 'rxjs/Rx';
 
 @Injectable()
@@ -31,7 +31,7 @@ export class NavigationService {
     ];
   }
 
-  getCategories(): Observable<SocialMediaAccount[]> {
+  getAccounts(): Observable<SocialMediaAccount[]> {
     return Observable.of(this.socialMediaAccounts);
   }
 }

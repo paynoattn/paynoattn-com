@@ -1,0 +1,31 @@
+@mixin angular-component() {
+  display: block;
+  box-sizing: border-box;
+}
+
+$aspect-ratio: 56.25%;
+@mixin grid($divider) {
+  flex: 0 0 100% / $divider;
+  padding-top: $aspect-ratio / $divider;
+}
+
+@mixin grid-breakpoint($breakpoint, $divider) {
+  @include breakpoint($breakpoint) {
+    @include grid($divider);
+  }
+}
+
+@mixin flex-row($justify) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: $justify;
+}
+
+@mixin flex-column($justify) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: $justify;
+}
+

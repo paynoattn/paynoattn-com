@@ -1,4 +1,3 @@
-@import "../../../node_modules/susy/sass/susy";
 @import "../../../node_modules/breakpoint-sass/stylesheets/breakpoint";
 @import "mixins";
 
@@ -25,6 +24,13 @@ $app-tertiary: #bfbfbf;
 $dark: #333;
 $light: #f2f2f2;
 
+$app-colors: (
+  'primary': $app-primary,
+  'secondary': $app-secondary,
+  'tertiary': $app-tertiary,
+  'dark': $dark
+);
+
 %post-meta {
   position: absolute;
   top: 0;
@@ -39,7 +45,7 @@ $light: #f2f2f2;
 
     img {
       height: 1.2rem;
-      width: 1.2em;
+      width: 1.2rem;
     }
   }
 }

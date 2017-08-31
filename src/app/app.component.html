@@ -3,6 +3,12 @@
     <img src="/assets/ellipsis.svg" alt="Loader" />
     {{busy}}
   </div>
-  <app-navigation [isWelcome]="showWelcome"></app-navigation>
+  <app-navigation class="landing" [ngClass]="{'hide': !isHome }" [isWelcome]=true 
+                  (leaving)="isHome = !isHome">
+  </app-navigation>
+  <app-navigation [isWelcome]=false></app-navigation>
+  <article>
+    <router-outlet></router-outlet>
+  </article>
   <footer id="app-footer">&copy; 2016 Chris Pawlukiewicz</footer>
 </main>

@@ -1,4 +1,4 @@
-import { SocialMediaAccount } from '../../models';
+import { SocialMediaAccount } from './socialmedia-account';
 
 export const mockSocialMediaAccount1: SocialMediaAccount = {
   provider: 'facebook',

@@ -6,10 +6,8 @@ import { Observable } from 'rxjs/Rx';
 
 import { NavigationComponent } from './navigation.component';
 import { NavigationService } from './navigation.service';
-import {
-  mockSocialMediaAccounts,
-  NavigationServiceStub
-} from '../utils';
+import { mockSocialMediaAccounts } from './socialmedia-account.mock';
+import { NavigationServiceStub } from './navigation.service.stub';
 
 describe('NavigationComponent', () => {
   let component: NavigationComponent;
@@ -42,15 +40,14 @@ describe('NavigationComponent', () => {
   it('should have default props', () => {
     expect(component.isWelcome).toEqual(false);
     expect(component.leaving).toBeDefined();
-    expect(component.hamburger).toEqual(false);
   });
-  it('should get Categories', () => {
-    const spy = spyOn(mockService, 'getCategories').and.returnValue(
+  it('should get Categories on init', () => {
+    const spy = spyOn(mockService, 'getAccounts').and.returnValue(
       Observable.of(mockSocialMediaAccounts)
     );
-    component.getCategories().subscribe(accounts => {
-      expect(accounts).toEqual(mockSocialMediaAccounts);
-    });
+    component.ngOnInit();
+    fixture.detectChanges();
+    expect(component.socialMediaAccounts.length).toBeTruthy();
     expect(spy.calls.any()).toEqual(true);
   });
 });

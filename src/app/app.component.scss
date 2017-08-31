@@ -5,7 +5,7 @@ body {
   
   main {
     min-height: 100vh;
-    padding-top: 4.5em;
+    padding-top: 4.5rem;
     box-sizing: border-box;
     
     header, nav, article, footer, main, div, blockquote {
@@ -14,7 +14,7 @@ body {
   }
   
   article {
-    min-height: calc(100vh - 8em);
+    min-height: calc(100vh - 8.5rem);
     
     h1, h2, h3, a, a:hover, a:visited {
       color: $app-primary;
@@ -31,7 +31,8 @@ body {
     
     h1, h2, h3, p, img.wide, ul, ol {
       width: 90%;
-      margin: 0.5em auto;
+      margin: 1rem auto;
+      box-sizing: border-box;
       
       @media only screen and (min-width: $screen-phone){
         width: 80%;
@@ -142,16 +143,27 @@ body {
         }
       }
     }
-    
-    
-    .posts {
-      @include container(100%);
-      max-width: $screen-hd;
-      background: white;
+  }
+
+  app-navigation.landing {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    transition: 300ms top ease-in-out;
+
+    &.hide {
+      top: -100vh;
     }
   }
   
   footer {
-    padding: 1em;
+    padding: 1rem;
+    height: 3rem;
+  }
+}
+
+@each $color-name, $color in $app-colors {
+  .#{$color-name} {
+    background-color: $color;
   }
 }
