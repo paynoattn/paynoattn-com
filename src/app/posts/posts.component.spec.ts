@@ -1,13 +1,18 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 
+import { AppService } from '../app.service';
 import { PostsComponent } from './posts.component';
 import { PostsService } from './posts.service';
 import { PostsServiceStub } from './posts.service.stub';
 import { mockPost } from './post.mock';
-import { ActivatedRouteStub } from '../utils';
+import {
+  ActivatedRouteStub,
+  LimitToPipe,
+  RouterStub
+} from '../utils';
 
 describe('PostsComponent', () => {
   let component: PostsComponent;
@@ -18,10 +23,15 @@ describe('PostsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PostsComponent ],
+      declarations: [
+        LimitToPipe,
+        PostsComponent
+      ],
       providers: [
+        AppService,
+        { provide: ActivatedRoute, useClass: ActivatedRouteStub },
         { provide: PostsService, useClass: PostsServiceStub },
-        { provide: ActivatedRoute, useClass: ActivatedRouteStub }
+        { provide: Router, useClass: RouterStub }
       ],
       schemas: [ NO_ERRORS_SCHEMA ]
     }).compileComponents();

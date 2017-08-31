@@ -1,3 +1,14 @@
+<nav class="category-switcher">
+  <span>You are viewing</span>
+  <select [(ngModel)]="category" (change)="route()">
+    <option value="">All</option>
+    <option value="development">Development</option>
+    <option value="writing">Writing</option>
+    <option value="design">Design</option>
+    <option value="blog">Blog</option>
+  </select>
+  <span>posts</span>
+</nav>
 <section class="posts" *ngIf="posts && posts.length">
   <div class="post" *ngFor="let post of posts" [ngClass]="postColor(post)" [class.post-img]="post.imageURL"
        [ngStyle]="{'background-image': post.imageURL ? 'url(' + post.imageURL + ')' : ''}">

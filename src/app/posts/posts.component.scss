@@ -1,5 +1,14 @@
 @import "../../assets/styles/variables";
 
+.category-switcher {
+  padding: 1rem;
+  @include flex-row(center);
+
+  span:not(:last-of-type), select {
+    margin-right: 1rem;
+  }
+}
+
 .posts {
   display: flex;
   flex-wrap: wrap;
@@ -8,11 +17,11 @@
     width: 100%;
     padding: 0 1rem;
     @include grid(1);
-    //padding-top: 100%;
     position: relative;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
+
     a {
       position: absolute;
       top: 0;

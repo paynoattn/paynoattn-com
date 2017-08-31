@@ -14,3 +14,18 @@ $aspect-ratio: 56.25%;
     @include grid($divider);
   }
 }
+
+@mixin flex-row($justify) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: $justify;
+}
+
+@mixin flex-column($justify) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: $justify;
+}
+
