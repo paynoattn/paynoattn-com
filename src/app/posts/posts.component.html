@@ -1,5 +1,5 @@
-<section class="posts">
-  <div class="post" *ngFor="let post of posts" [ngClass]="postColor(post)"
+<section class="posts" *ngIf="posts && posts.length">
+  <div class="post" *ngFor="let post of posts" [ngClass]="postColor(post)" [class.post-img]="post.imageURL"
        [ngStyle]="{'background-image': post.imageURL ? 'url(' + post.imageURL + ')' : ''}">
     <a href="{{post.link}}" target="_blank"></a>
     <img class="post-icon" src="/assets/{{post.source}}.svg" alt="{{post.source}}">
@@ -7,7 +7,10 @@
       {{post.categories[0]}}
     </div>
     <h3 class="post-title">
-      {{post.title}}
+      {{ post.title | limitTo: 80 }}
     </h3>
   </div>
+</section>
+<section *ngIf="!posts || !posts.length">
+  <h2>There are no posts! Check your internet connection and try again.</h2>
 </section>

@@ -27,16 +27,10 @@
       bottom: 0;
       left: 0;
       margin: 0;
-      // max-height: 2rem;
-      overflow: hidden;
-      font-size: 1.3rem;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      font-size: 2rem;
       width: 100%;
       padding: 1rem;
       color: white;
-      background: rgba($dark, 0.5)
     }
 
     .post-icon {
@@ -57,16 +51,34 @@
       border-radius: 5px;
     }
 
-    &:hover {
+    &.post-img .post-title {
+      overflow: hidden;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      background: rgba($dark, 0.5)
+    }
+
+    &.post-img:hover {
       .post-title {
         max-height: 100%;
         white-space: inherit;
       }
     }
 
-    @include grid-breakpoint($screen-tablet, 2);
+    @include breakpoint($screen-tablet) {
+      @include grid(2);
+      .post-title {
+        font-size: 1.5rem;
+      }
+    }
 
-    @include grid-breakpoint($screen-lg, 3);
+    @include breakpoint($screen-lg) {
+      @include grid(3);
+      .post-title {
+        font-size: 1.3rem;
+      }
+    }
 
     @include grid-breakpoint($screen-xlg, 4);
 

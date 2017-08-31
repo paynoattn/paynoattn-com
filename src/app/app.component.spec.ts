@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 
 // import our component for testing.
 import { AppComponent } from './app.component';
+import { AppService } from './app.service';
 import {
   EnvironmentService,
   EnvironmentStub,
@@ -28,6 +29,7 @@ describe('AppComponent', () => {
       declarations: [ AppComponent ],
       schemas: [ NO_ERRORS_SCHEMA ],
       providers: [
+        AppService,
         { provide: EnvironmentService, useClass: EnvironmentStub },
         { provide: Router, useClass: RouterStub }
       ]
