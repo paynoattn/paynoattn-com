@@ -12,22 +12,20 @@
     <a class="logo-link" href="/">
       <img src="/assets/logo.jpg" class="logo" alt="logo"/>
     </a>
+    <!--<p class="hamburger" (click)='showHamburger()' [ngClass]="{active: hamburger}">
+      <span class="hamburger-icon"></span>
+      <span class="hamburger-text">Menu</span>
+    </p>-->
     <div class="branding" >
       <h1>Hi, my name is Chris</h1>
       <nav class="main-nav">I'm a 
-        <a routerLink="posts/design">designer</a>,
-        <a routerLink="posts/development">developer</a>,
-        <a routerLink="posts/writing">writer</a>,
+        <a>designer</a>,
+        <a>developer</a>,
+        <a>writer</a>,
         and <a href="http://kingdomworks.io" target="_blank">entreprenuer</a>.
       </nav><!-- .main-nav -->
     </div><!-- .branding -->
   </div><!-- .masthead -->
-  <div class="load-all-posts" *ngIf="isWelcome">
-    <a (click)="leaving.emit()">
-      All posts
-      <img src="/assets/down-arrow.svg" alt="arrow-down">
-    </a>
-  </div>
   <div class="app-help">
     <!--<a [routerLink]="['/help']">
       How do I use this website?
