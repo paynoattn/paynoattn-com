@@ -114,11 +114,6 @@ header {
         .hamburger-icon {
           background-image: url('/assets/close.svg');
         }
-        
-        + .branding {
-          left: 0;
-          opacity: 1;
-        }
       }
       
       @include breakpoint($screen-tablet) {
@@ -172,6 +167,11 @@ header {
           font-size: 1.2em;
           width: auto;
         }
+      }
+
+      &.hamburger-open {
+        left: 0;
+        opacity: 1;
       }
     }
   }

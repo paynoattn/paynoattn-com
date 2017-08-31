@@ -1,5 +1,5 @@
 <header [ngClass]="{'landing': isWelcome}">
-  <nav class="social-media" [ngClass]="{open: hamburger}">
+  <nav class="social-media" [ngClass]="{'open': hamburger}">
     <ul>
       <li *ngFor='let account of socialMediaAccounts'>
         <a href="{{account.link}}">
@@ -12,7 +12,7 @@
     <a class="logo-link" href="/">
       <img src="/assets/logo.jpg" class="logo" alt="logo"/>
     </a>
-    <div class="branding" >
+    <div class="branding" [ngClass]="{'hamburger-open': hamburger}">
       <h1>Hi, my name is Chris</h1>
       <nav class="main-nav">I'm a 
         <a routerLink="posts/design">designer</a>,
@@ -21,6 +21,10 @@
         and <a href="http://kingdomworks.io" target="_blank">entreprenuer</a>.
       </nav><!-- .main-nav -->
     </div><!-- .branding -->
+    <p class="hamburger" (click)="hamburger = !hamburger" [ngClass]="{active: hamburger}">
+      <span class="hamburger-icon"></span>
+      <span class="hamburger-text">Menu</span>
+    </p>
   </div><!-- .masthead -->
   <div class="load-all-posts" *ngIf="isWelcome">
     <a (click)="leaving.emit()">
