@@ -1,2 +1,2 @@
-export * from './environment';
+export { environment } from './environment';
 export { Env } from './env';

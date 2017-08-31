@@ -20,6 +20,7 @@ export class NavigationComponent implements OnInit {
   @Input() isWelcome = false;
   @Output() leaving = new EventEmitter();
   socialMediaAccounts: SocialMediaAccount[];
+  hamburger = false;
 
   constructor(
     private navService: NavigationService

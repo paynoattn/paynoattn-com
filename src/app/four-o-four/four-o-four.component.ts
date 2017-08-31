@@ -5,5 +5,5 @@ import { Component } from '@angular/core';
   templateUrl: './four-o-four.component.html',
   styleUrls: ['./four-o-four.component.scss']
 })
-  
+
 export class FourOFourComponent { }
