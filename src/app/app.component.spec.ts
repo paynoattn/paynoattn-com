@@ -12,7 +12,12 @@ import { Router } from '@angular/router';
 
 // import our component for testing.
 import { AppComponent } from './app.component';
-import { RouterStub } from './utils';
+import { AppService } from './app.service';
+import {
+  EnvironmentService,
+  EnvironmentStub,
+  RouterStub
+} from './utils';
 
 let component: AppComponent;
 let fixture: ComponentFixture<AppComponent>;
@@ -23,7 +28,9 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ AppComponent ],
       schemas: [ NO_ERRORS_SCHEMA ],
-      providers: [ 
+      providers: [
+        AppService,
+        { provide: EnvironmentService, useClass: EnvironmentStub },
         { provide: Router, useClass: RouterStub }
       ]
     }).compileComponents();
@@ -40,11 +47,14 @@ describe('AppComponent', () => {
   it('should have default props', fakeAsync(() => {
     expect(component.busy).toEqual('Loading application...');
     expect(component.showWelcome).toEqual(true);
+    expect(component.isHome).toEqual(false);
   }));
-  it('should log on init', fakeAsync(() => {
+  it('should log, set isHome on init', fakeAsync(() => {
     spyOn(console, 'log');
+    spyOn(component.isHomeSubject, 'next');
     component.ngOnInit();
     expect(console.log).toHaveBeenCalled();
+    expect(component.isHomeSubject.next).toHaveBeenCalledWith(true);
     expect(component.busy).toEqual(undefined);
   }));
 });

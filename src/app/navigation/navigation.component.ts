@@ -20,18 +20,13 @@ export class NavigationComponent implements OnInit {
   @Input() isWelcome = false;
   @Output() leaving = new EventEmitter();
   socialMediaAccounts: SocialMediaAccount[];
-  hamburger: boolean = false;
 
   constructor(
     private navService: NavigationService
   ) { }
 
-  getCategories() {
-    return this.navService.getCategories();
-  }
-
   ngOnInit() {
-    this.getCategories().subscribe((accounts) => {
+    this.navService.getAccounts().subscribe((accounts) => {
       this.socialMediaAccounts = accounts;
     });
   }

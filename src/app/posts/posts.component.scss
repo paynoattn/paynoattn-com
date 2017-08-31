@@ -1,0 +1,98 @@
+@import "../../assets/styles/variables";
+
+.category-switcher {
+  padding: 1rem;
+  @include flex-row(center);
+
+  span:not(:last-of-type), select {
+    margin-right: 1rem;
+  }
+}
+
+.posts {
+  display: flex;
+  flex-wrap: wrap;
+
+  .post {
+    width: 100%;
+    padding: 0 1rem;
+    @include grid(1);
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    a {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    .post-title {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      margin: 0;
+      font-size: 2rem;
+      width: 100%;
+      padding: 1rem;
+      color: white;
+    }
+
+    .post-icon {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      width: 25px;
+      height: auto;
+    }
+
+    .post-category {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      color: $dark;
+      padding: 0.25rem 0.5rem;
+      background: rgba($light, 0.5);
+      border-radius: 5px;
+    }
+
+    &.post-img .post-title {
+      overflow: hidden;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      background: rgba($dark, 0.5)
+    }
+
+    &.post-img:hover {
+      .post-title {
+        max-height: 100%;
+        white-space: inherit;
+      }
+    }
+
+    @include breakpoint($screen-tablet) {
+      @include grid(2);
+      .post-title {
+        font-size: 1.5rem;
+      }
+    }
+
+    @include breakpoint($screen-lg) {
+      @include grid(3);
+      .post-title {
+        font-size: 1.3rem;
+      }
+    }
+
+    @include grid-breakpoint($screen-xlg, 4);
+
+    @include grid-breakpoint($screen-xxlg, 5);
+
+    @include grid-breakpoint($screen-hd, 6);
+  }
+}
