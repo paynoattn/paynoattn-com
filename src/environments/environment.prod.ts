@@ -5,5 +5,5 @@ export const environment: Env = {
   production: true,
   appURL: 'http://www.paynoattn.com',
   repoUrl: 'https://github.com/paynoattn/paynoattn-com',
-  apiUrl: 'http://api.paynoattn.com'
+  apiUrl: 'https://api.paynoattn.com'
 };
