@@ -22,6 +22,7 @@ export class AppComponent implements OnInit {
   isHome: boolean;
   repoUrl: string;
   showWelcome = true;
+  modal = false;
 
   constructor(
     private appSvc: AppService,
@@ -34,12 +35,17 @@ export class AppComponent implements OnInit {
     this.appSvc.busy
       .debounceTime(100)
       .subscribe(busy => this.busy = busy);
+    this.appSvc.modal
+      .debounceTime(100)
+      .subscribe(modal => this.modal = modal);
   }
 
   ngOnInit() {
-    this._router.events.subscribe(
-      e => this.isHomeSubject.next(e['url'] === '/' || e['url'] === '/#home')
-    );
+    this._router.events.subscribe(e => {
+      const showHome = e['url'] === '/' || e['url'] === '/#home';
+      this.isHomeSubject.next(showHome);
+      this.appSvc.updateModal(showHome);
+    });
     this.repoUrl = this.env.getValue('repoUrl');
     console.log(
       `Welcome to paynoattn.com.

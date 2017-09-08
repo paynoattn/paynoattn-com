@@ -21,6 +21,7 @@ import {
 
 let component: AppComponent;
 let fixture: ComponentFixture<AppComponent>;
+let appSvc: AppService;
 
 describe('AppComponent', () => {
 
@@ -39,22 +40,25 @@ describe('AppComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(AppComponent);
     component = fixture.componentInstance;
+    appSvc = fixture.debugElement.injector.get(AppService);
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  it('should have default props', fakeAsync(() => {
+  it('should have default props', () => {
     expect(component.busy).toEqual('Loading application...');
     expect(component.showWelcome).toEqual(true);
     expect(component.isHome).toEqual(false);
-  }));
-  it('should log, set isHome on init', fakeAsync(() => {
+  });
+  it('should log, set isHome on init', () => {
     spyOn(console, 'log');
     spyOn(component.isHomeSubject, 'next');
+    spyOn(appSvc, 'updateModal');
     component.ngOnInit();
     expect(console.log).toHaveBeenCalled();
     expect(component.isHomeSubject.next).toHaveBeenCalledWith(true);
+    expect(appSvc.updateModal).toHaveBeenCalledWith(true);
     expect(component.busy).toEqual(undefined);
-  }));
+  });
 });

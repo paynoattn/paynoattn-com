@@ -11,6 +11,11 @@ body {
     header, nav, article, footer, main, div, blockquote {
       box-sizing: border-box;
     }
+
+    &.modal {
+      height: 100vh;
+      overflow: hidden;
+    }
   }
   
   article {
