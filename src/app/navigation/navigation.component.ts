@@ -6,6 +6,7 @@ import {
   EventEmitter
 } from '@angular/core';
 
+import { AppService } from '../app.service';
 import { SocialMediaAccount } from './socialmedia-account';
 import { NavigationService } from './navigation.service';
 
@@ -23,6 +24,7 @@ export class NavigationComponent implements OnInit {
   hamburger = false;
 
   constructor(
+    private appSvc: AppService,
     private navService: NavigationService
   ) { }
 
@@ -30,5 +32,10 @@ export class NavigationComponent implements OnInit {
     this.navService.getAccounts().subscribe((accounts) => {
       this.socialMediaAccounts = accounts;
     });
+  }
+
+  close() {
+    this.leaving.emit(true);
+    this.appSvc.updateModal(false);
   }
 }

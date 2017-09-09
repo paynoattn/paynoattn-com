@@ -1,9 +1,10 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 
+import { AppService } from '../app.service';
 import { NavigationComponent } from './navigation.component';
 import { NavigationService } from './navigation.service';
 import { mockSocialMediaAccounts } from './socialmedia-account.mock';
@@ -13,6 +14,7 @@ describe('NavigationComponent', () => {
   let component: NavigationComponent;
   let fixture: ComponentFixture<NavigationComponent>;
   let mockService: NavigationServiceStub;
+  let appSvc: AppService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -20,6 +22,7 @@ describe('NavigationComponent', () => {
     }).overrideComponent(NavigationComponent, {
       set: {
         providers: [
+          AppService,
           { provide: NavigationService, useClass: NavigationServiceStub },
         ]
       }
@@ -31,6 +34,7 @@ describe('NavigationComponent', () => {
     fixture = TestBed.createComponent(NavigationComponent);
     component = fixture.componentInstance;
     mockService = fixture.debugElement.injector.get(NavigationService);
+    appSvc = fixture.debugElement.injector.get(AppService);
     fixture.detectChanges();
   });
 
@@ -49,5 +53,11 @@ describe('NavigationComponent', () => {
     fixture.detectChanges();
     expect(component.socialMediaAccounts.length).toBeTruthy();
     expect(spy.calls.any()).toEqual(true);
+  });
+  it('should close', () => {
+    const spy = spyOn(appSvc, 'updateModal');
+    component.close();
+    expect(spy.calls.any()).toEqual(true);
+    component.leaving.take(1).subscribe(e => expect(e).toBeTruthy());
   });
 });
